@@ -7,6 +7,23 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
+const session = require('express-session');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+//Session code
+const sess = {
+  secret: 'Dont tell anyone I watch horders',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+//End Session code
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
