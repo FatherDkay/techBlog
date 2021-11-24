@@ -26,12 +26,17 @@
       <br>
     <div class ="pageTitle">
       {{#if isDashboard}}
+      Dashboard
+      {{else}}
+      The Tech Blog
+      {{/if}}
+      {{!-- {{#if isDashboard}}
       <span><b><u>Dashboard</u></b>{{#if loggedIn}} <br>Welcome {{username}} </span>
       {{/if}}
       {{else}}
             <span> <b><u>The Tech Blog</u> </b>{{#if loggedIn}}<br>Welcome {{username}} </span>
       {{/if}}
-      {{/if}}
+      {{/if}} --}}
     </div>
     <br>
   </div>
