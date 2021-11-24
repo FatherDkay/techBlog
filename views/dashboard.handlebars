@@ -8,7 +8,7 @@
     </div>
     <div>
       <label for="content">Content</label>
-      <input type="text" id="content" name="content" />
+          <textarea name="content" id="content"></textarea>
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
@@ -20,8 +20,9 @@
   <ol>
     {{#each posts as |post|}}
     <li>
+      <button class="btn" onclick="location.href='/dashboard/edit/{{post.id}}';">Edit Post</button>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      {{!-- <button class="btn" onclick="location.href='/dashboard/edit/{{post.id}}';">Edit Post</button> --}}
     </li>
     {{/each}}
   </ol>

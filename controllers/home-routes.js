@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
       res.render('homepage', {
         posts,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn, username:posts[0].user.username
       });
     })
     .catch(err => {
@@ -78,7 +78,7 @@ router.get('/post/:id', (req, res) => {
 
       res.render('single-post', {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn, username: post.user.username
       });
     })
     .catch(err => {

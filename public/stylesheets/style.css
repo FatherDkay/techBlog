@@ -7,22 +7,23 @@
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    color: #333;
   }
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    color:rgb(217,234,211);
     font-weight: bold;
     transition: color .1s;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
   a:hover {
-    color: #3486eb;
+    color: rgb(246, 250, 244);
   }
   
   button {
-    background-color: #225ca3;
+    background-color: #8c8f92;
     border: 0;
     padding: 1%;
     color: white;
@@ -33,7 +34,7 @@
   }
   
   button:hover {
-    background-color: #3486eb;
+    background-color: rgb(35,16,16);
   }
   
   .post-list {
@@ -53,7 +54,7 @@
   }
   
   textarea {
-    min-width: 40%;
+    min-width: 50%;
     min-height: 100px;
   }
   
@@ -91,22 +92,22 @@
     padding: 2% 4%;
   }
   
-  .btn-no-style {
+  .logout {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
+    color: rgb(217,234,211);
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
   }
   
-  .btn-no-style:hover {
+  .logout:hover {
     background: none;
-    color: #3486eb;
+    color: rgb(246, 250, 244);
   }
   
   .delete-post-btn {
@@ -133,15 +134,6 @@
     margin: -1.5% 0 2% 0;
   }
   
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
-  }
-  
   .comment-form {
     margin-bottom: 5%;
   }
@@ -155,24 +147,79 @@
     background-color: #fff5eb;
   }
   
-  .comment .meta {
+  .post .meta {
     font-size: 90%;
     margin-bottom: .5%;
     opacity: .6;
+    border:rgb(35,16,16) solid 2px;
+    background-color: rgb(217,234,211);
+    width: 90%;
   }
   
   .new-post-form input {
-    width: 300px;
+    width: 90%;
+  }
+  .new-post-form textarea {
+    width: 90%;
   }
   
   .edit-post-form {
     margin-bottom: 5%;
   }
-  
-  footer {
-    border-top: 1px solid #ccc;
+  .edit-post-form input {
+    width: 90%;
+  }
+  .edit-post-form textarea {
+    width: 90%;
+  }
+  bigBox {
+    height: 20px;
+    width: 805;
+  }
+
+  navBar {
+    width: 100%;
+    background-color: rgb(35,16,16);
+  }
+  .title {
+    float: left;
+  }
+
+  .top {
+    width: 100%;
+    background-color: rgb(35,16,16);
+    color: rgb(217,234,211);
+  }
+
+  .pageTitle {
+    text-align: center;
+    color: rgb(35,16,16);
+    width: 170px;
+    padding: 0.5px;
+    background-color: rgb(217,234,211);
+    border: rgb(35,16,16) 1px;
+    border-radius: 5px;
+    box-shadow: 5px 5px grey;
+    margin-left: 20px;
+    line-height: normal !important;
+  }
+
+  .postTitle {
+    width: 90%;
+    background-color: rgb(35,16,16);
+    color: rgb(217,234,211);
+    padding: 2px;
+  }
+  body {
+    background-color: rgb(217,234,211);
+  }
+
+  main {
     display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
+  }
+  main form {
+    flex: 2;
+  }
+  h3, h4 {
+    padding: 0 !important;
   }
