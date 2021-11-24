@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -55,12 +56,13 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.post('/', (req, res) => {
+  router.post('/', withAuth, (req, res) => {
+    console.log(req.body);
     // expects {title: 'This is a Title', 'This is the post content', user_id: 1}
     Post.create({
       title: req.body.title,
       content: req.body.content,
-      user_id: req.body.user_id
+      user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -95,7 +97,13 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.delete('/:id', (req, res) => {
+  router.delete('/:id', withAuth, (req, res) => {
+  //   Post.update({user_id:null},{
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  // .then (dbPostdata =>{
     Post.destroy({
       where: {
         id: req.params.id
@@ -108,10 +116,12 @@ router.get('/', (req, res) => {
         }
         res.json(dbPostData);
       })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+
+  // })
+      // .catch(err => {
+      //   console.log(err);
+      //   res.status(500).json(err);
+      // });
   });
 
   module.exports = router;
