@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
       'id',
       'content',
       'title',
-      'created_at',
+      'createdAt',
     ],
     include: [
       {
@@ -25,10 +25,13 @@ router.get('/', (req, res) => {
         model: User,
         attributes: ['username']
       }
-    ]
+    ],
+    // order: ["createdAt DESC"]
+    order: [['createdAt', 'DESC']] // or ASC
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
+      console.log(posts);
 
       res.render('homepage', {
         posts,
@@ -52,7 +55,7 @@ router.get('/post/:id', (req, res) => {
       'id',
       'content',
       'title',
-      'created_at',
+      'createdAt',
     ],
     include: [
       {
